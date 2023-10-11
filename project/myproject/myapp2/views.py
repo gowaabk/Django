@@ -1,8 +1,12 @@
 import datetime
 from django.shortcuts import render
 from myapp2.models import Client, Goods, Orders
+import logging
+
 
 # Create your views here.
+
+logger = logging.getLogger(__name__)
 
 
 def get_clients(request):
@@ -10,6 +14,7 @@ def get_clients(request):
     context = {
         'clients': clients
     }
+    logger.info("View all clients")
     return render(request, 'myapp2/clients.html', context=context)
 
 
@@ -22,4 +27,5 @@ def get_client_goods(request, client_id: int, count=7):
         'client': client,
         'orders': orders
     }
+    logger.info(f"Get all goods for {count} days")
     return render(request, 'myapp2/client_goods.html', context=context)

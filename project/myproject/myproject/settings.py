@@ -153,5 +153,10 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True,
         },
+        'myapp2': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
     },
 }
