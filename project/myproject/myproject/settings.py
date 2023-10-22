@@ -31,20 +31,31 @@ ALLOWED_HOSTS = [
 ]
 
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
+
 # Application definition
 
 INSTALLED_APPS = [
+    'adminlte3',
+    'adminlte3_theme',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'debug_toolbar',
     "myapp",
     "myapp2",
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -53,6 +64,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
 
 ROOT_URLCONF = "myproject.urls"
 
@@ -102,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "ru-ru"
 
 TIME_ZONE = "UTC"
 
